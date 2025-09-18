@@ -1,7 +1,28 @@
 /**
 * Template Name: FolioOne
-* Template URL: https://bootstrapmade.com/folioone-bootstrap-portfolio-website-template/
-* Updated: Aug 23 2025 with Bootstrap v5.3.7
+* Template URL: https://bootstrapmade.com/folioone-bootstrap-portfolio-website-temp      new Typed('.typed', {
+      strings: typed_strings,
+      loop: true,
+      typeSpeed: 50,
+      backSpeed: 30,
+      backDelay: 2000,
+      startDelay: 500,
+      smartBackspace: true,
+      showCursor: true,
+      cursorChar: '|',
+      cursorBlinking: true,
+      autoInsertCss: true,
+      fadeOut: true,
+      fadeOutClass: 'typed-fade-out',
+      fadeOutDelay: 500,
+      contentType: 'html',
+      onStringTyped: function(arrayPos, self) {
+        // Add a slight pause before backspacing
+        self.timeout = setTimeout(function() {
+          self.backDelay = 1000;
+        }, 1000);
+      }
+    }); Updated: Aug 23 2025 with Bootstrap v5.3.7
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
 */

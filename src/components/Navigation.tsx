@@ -12,7 +12,24 @@ import {
   BookOpenIcon,
   EnvelopeIcon
 } from '@heroicons/react/24/outline';
-import { useSafeTheme } from '@/hooks/useSafeTheme';
+
+// Wolf icon component - geometric wolf design
+const WolfIcon = () => (
+  <svg 
+    width="32" 
+    height="32" 
+    viewBox="0 0 24 24" 
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    className="text-amber-500"
+  >
+    <path d="M12 2L14 8L20 8L15 12L17 18L12 15L7 18L9 12L4 8L10 8L12 2Z" fill="currentColor"/>
+    <circle cx="8" cy="10" r="1" fill="currentColor"/>
+    <circle cx="16" cy="10" r="1" fill="currentColor"/>
+    <path d="M8 14L12 12L16 14"/>
+  </svg>
+);
 
 /**
  * Modern Dark Navigation Component
@@ -30,7 +47,6 @@ const Navigation: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
-  const { theme, toggleTheme } = useSafeTheme();
 
   const navItems = useMemo(() => [
     { name: 'Home', href: '#hero', icon: HomeIcon },
@@ -40,24 +56,6 @@ const Navigation: React.FC = () => {
     { name: 'Blogs', href: '#blogs', icon: BookOpenIcon },
     { name: 'Contact', href: '#contact', icon: EnvelopeIcon },
   ], []);
-
-  // Wolf icon component - geometric wolf design
-  const WolfIcon = () => (
-    <svg 
-      width="32" 
-      height="32" 
-      viewBox="0 0 24 24" 
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      className="text-amber-500"
-    >
-      <path d="M12 2L14 8L20 8L15 12L17 18L12 15L7 18L9 12L4 8L10 8L12 2Z" fill="currentColor"/>
-      <circle cx="8" cy="10" r="1" fill="currentColor"/>
-      <circle cx="16" cy="10" r="1" fill="currentColor"/>
-      <path d="M8 14L12 12L16 14"/>
-    </svg>
-  );
 
   // Handle scroll effect
   useEffect(() => {
@@ -94,7 +92,15 @@ const Navigation: React.FC = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const offset = 80; // Account for fixed navigation
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+      
       setIsMobileMenuOpen(false);
     }
   };
@@ -113,10 +119,9 @@ const Navigation: React.FC = () => {
     >
       <nav className={`
         bg-secondary-dark/95 backdrop-blur-md shadow-2xl border border-accent-gold/20
-        transition-all duration-normal
+        transition-all duration-normal rounded-[50px]
         ${isScrolled ? 'bg-secondary-dark/98 shadow-xl border-accent-gold/30' : ''}
-      `}
-      style={{ borderRadius: '50px' }}>
+      `}>
         <div className="container-custom">
           <div className="flex items-center justify-between h-20">
             
@@ -143,7 +148,7 @@ const Navigation: React.FC = () => {
                     onClick={() => scrollToSection(item.href.slice(1))}
                     className={`
                       px-4 py-2 rounded-lg text-sm lg:text-base font-medium 
-                      transition-colors duration-normal relative
+                      transition-all duration-300 relative overflow-hidden
                       ${activeSection === item.href.slice(1)
                         ? 'text-accent-gold bg-accent-gold/10'
                         : 'text-text-secondary hover:text-accent-gold hover:bg-text-primary/5'
@@ -151,10 +156,7 @@ const Navigation: React.FC = () => {
                     `}
                     suppressHydrationWarning={true}
                   >
-                    <span>{item.name}</span>
-                    {activeSection === item.href.slice(1) && (
-                      <div className="absolute -bottom-1 left-2 right-2 h-0.5 bg-accent-gold rounded-full" />
-                    )}
+                    <span className="relative z-10">{item.name}</span>
                   </button>
                 );
               })}
@@ -183,8 +185,7 @@ const Navigation: React.FC = () => {
           <AnimatePresence>
             {isMobileMenuOpen && (
               <motion.div
-                className="md:hidden border-t border-accent-gold/20 mt-4"
-                style={{ borderRadius: '0 0 50px 50px' }}
+                className="md:hidden border-t border-accent-gold/20 mt-4 rounded-b-[50px]"
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: 'auto' }}
                 exit={{ opacity: 0, height: 0 }}
@@ -198,7 +199,7 @@ const Navigation: React.FC = () => {
                         onClick={() => scrollToSection(item.href.slice(1))}
                         className={`
                           w-full text-left py-3 px-4 rounded-lg
-                          text-base font-medium transition-colors duration-normal
+                          text-base font-medium transition-all duration-300
                           ${activeSection === item.href.slice(1)
                             ? 'text-accent-gold bg-accent-gold/10'
                             : 'text-text-secondary hover:text-accent-gold hover:bg-text-primary/5'

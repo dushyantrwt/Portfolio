@@ -66,19 +66,19 @@ export const skills: Skill[] = [
 // Education Data
 export const education: Education[] = [
   {
-    degree: "Bachelor's Degree in Computer Applications",
-    school: "University",
+    degree: "Bachelor in Computer Application",
+    school: "Rajiv Academy For Technology And Management",
     location: "India",
-    startDate: "2020",
-    endDate: "2023",
+    startDate: "2023",
+    endDate: "Present",
     description: "Focused on software development, web technologies, and computer science fundamentals. Gained strong foundation in programming languages and software engineering principles."
   },
   {
-    degree: "Full Stack Web Development",
-    school: "Online Learning Platforms",
-    location: "Remote",
+    degree: "Freelance Developer",
+    // school: "Online Learning Platforms",
+    location: "India",
     startDate: "2023",
-    endDate: "2024",
+    endDate: "Present",
     description: "Intensive learning program covering modern web development technologies including React, Node.js, databases, and deployment strategies."
   }
 ];
@@ -115,21 +115,21 @@ export const experiences: Experience[] = [
     ],
     technologies: ["React", "Node.js", "Express.js", "MongoDB", "HTML5", "CSS3", "JavaScript"]
   },
-  {
-    title: "Computer Science Student",
-    company: "University",
-    location: "India",
-    startDate: "June 2020",
-    endDate: "May 2023",
-    type: "part-time",
-    description: [
-      "Studied computer science fundamentals including data structures and algorithms",
-      "Learned programming languages including C++, Java, and Python",
-      "Completed projects involving database management and software development",
-      "Developed strong analytical and problem-solving skills"
-    ],
-    technologies: ["C++", "Java", "Python", "MySQL", "Data Structures", "Algorithms"]
-  }
+  // {
+  //   title: "Computer Science Student",
+  //   company: "University",
+  //   location: "India",
+  //   startDate: "June 2020",
+  //   endDate: "May 2023",
+  //   type: "part-time",
+  //   description: [
+  //     "Studied computer science fundamentals including data structures and algorithms",
+  //     "Learned programming languages including C++, Java, and Python",
+  //     "Completed projects involving database management and software development",
+  //     "Developed strong analytical and problem-solving skills"
+  //   ],
+  //   technologies: ["C++", "Java", "Python", "MySQL", "Data Structures", "Algorithms"]
+  // }
 ];
 
 // Projects Data

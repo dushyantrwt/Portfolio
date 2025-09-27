@@ -97,10 +97,23 @@ const Resume: React.FC = () => {
             {personalInfo.resumeUrl && (
               <motion.a
                 href={personalInfo.resumeUrl}
-                download
+                download="Dushyant_Rawat_Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn-primary inline-flex items-center space-x-2"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={(e) => {
+                  // Fallback for browsers that don't support download attribute
+                  try {
+                    console.log('Resume download clicked');
+                    // Let the browser handle the download
+                  } catch (error) {
+                    // Fallback: open in new tab if download fails
+                    e.preventDefault();
+                    window.open(personalInfo.resumeUrl, '_blank');
+                  }
+                }}
               >
                 <DocumentArrowDownIcon className="w-5 h-5" />
                 <span>Download Resume PDF</span>

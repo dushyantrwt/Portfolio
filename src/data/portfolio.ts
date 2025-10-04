@@ -74,12 +74,20 @@ export const education: Education[] = [
     description: "Focused on software development, web technologies, and computer science fundamentals. Gained strong foundation in programming languages and software engineering principles."
   },
   {
-    degree: "Freelance Developer",
-    // school: "Online Learning Platforms",
+    degree: "Secondary Education",
+    school: "Champa Agrawal Inter College",
     location: "India",
-    startDate: "2023",
-    endDate: "Present",
-    description: "Intensive learning program covering modern web development technologies including React, Node.js, databases, and deployment strategies."
+    startDate: "2021",
+    endDate: "2023",
+    // description: "Intensive learning program covering modern web development technologies including React, Node.js, databases, and deployment strategies."
+  },
+  {
+    degree: "Higher Education",
+    school: "K.R.S.D Public School",
+    location: "India",
+    startDate: "2019",
+    endDate: "2021",
+    // description: "Intensive learning program covering modern web development technologies including React, Node.js, databases, and deployment strategies."
   }
 ];
 

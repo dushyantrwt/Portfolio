@@ -168,7 +168,10 @@ const About: React.FC = () => {
                       </span>
                     </div>
                     <p className="text-text-secondary mb-2">
-                      {edu.school} • {edu.location}
+                      {edu.school}
+                    </p>
+                    <p className="text-text-secondary mb-2">
+                      • {edu.location}
                     </p>
                     {edu.description && (
                       <p className="text-text-muted mb-2">
